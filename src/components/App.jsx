@@ -3,13 +3,19 @@ import 'materialize-css/dist/css/materialize.min.css';
 import "./App.css";
 import { v4 as uuidv4 } from 'uuid';
 import BmiForm from "./BmiForm";
+import Bar from "./Bar";
 
 function App() {
   const initialState = JSON.parse(localStorage.getItem('bmiData')) || [];
   const [state, setState] = useState(initialState);
+  const [barData, setBarData] = useState({});
 
   useEffect(() => {
     localStorage.setItem('bmiData', JSON.stringify(state));
+    const date = state.map(item => item.date);
+    const bmi = state.map(item => item.bmi);
+    const newBarData = { date, bmi };
+    setBarData(newBarData);
   }, [state]);
 
   function handleChange(newData) {
@@ -42,6 +48,7 @@ function App() {
       <div className='row'>
         <div className='col m12 s12'>
           <BmiForm onChange={handleChange} />
+          <Bar labelData={barData.date} bmiData={barData.bmi} />
           <div>
             <div className='row center'>
               <h4 className='white-text'>7 Day Data</h4>
