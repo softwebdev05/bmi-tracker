@@ -23,4 +23,4 @@ function Info(props) {
   );
 }
 
-export default Info; 
+export default Info;

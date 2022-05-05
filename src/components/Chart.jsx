@@ -1,5 +1,5 @@
 import React from "react";
-import { Line, Bar } from 'react-chartjs-2';
+import {Line, Bar} from 'react-chartjs-2';
 
 const chartTypes = { Line, Bar }
 
@@ -83,4 +83,4 @@ function Chart(props) {
   );
 }
 
-export default Chart; 
+export default Chart;

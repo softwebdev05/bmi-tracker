@@ -4,7 +4,7 @@ import "./App.css";
 import { v4 as uuidv4 } from 'uuid';
 import BmiForm from "./BmiForm";
 import Info from "./Info";
-import Chart  from "./Chart";
+import Chart from "./Chart";
 
 function App() {
   const initialState = JSON.parse(localStorage.getItem('bmiData')) || [];
@@ -94,4 +94,4 @@ function App() {
   );
 }
 
-export default App;  
+export default App;

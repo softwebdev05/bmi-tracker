@@ -84,4 +84,4 @@ function BmiForm(props) {
   );
 }
 
-export default BmiForm; 
+export default BmiForm;

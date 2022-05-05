@@ -99,7 +99,7 @@ label {
 
 .delete-btn:focus {
   background-color: #e74c3c;
-} 
+}
 
 .chartSelect {
   display: inline-block;
@@ -107,4 +107,4 @@ label {
   outline: none;
   text-align-last: center;
   width: 60% !important;
-} 
+}
