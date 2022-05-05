@@ -3,6 +3,7 @@ import 'materialize-css/dist/css/materialize.min.css';
 import "./App.css";
 import { v4 as uuidv4 } from 'uuid';
 import BmiForm from "./BmiForm";
+import Info from "./Info";
 import Bar from "./Bar";
 
 function App() {
