@@ -1,7 +1,10 @@
 import React from "react";
-import { Line } from 'react-chartjs-2';
+import { Line, Bar } from 'react-chartjs-2';
 
-function Bar(props) {
+const chartTypes = { Line, Bar }
+
+function Chart(props) {
+  const ChartName = chartTypes[props.chart];
 
   function data(canvas) {
     const ctx = canvas.getContext('2d');
@@ -75,9 +78,9 @@ function Bar(props) {
 
   return (
     <>
-      <Line data={data} options={options} />
+      <ChartName data={data} options={options} />
     </>
   );
 }
 
-export default Bar; 
+export default Chart; 
