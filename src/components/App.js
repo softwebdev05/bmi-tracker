@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import 'materialize-css/dist/css/materialize.min.css';
 import "./App.css";
+import { v4 as uuidv4 } from 'uuid';
 import BmiForm from "./BmiForm";
 
 function App() {
-
-  function handleChange(data) {
-    console.log(data);
+  const [state, setState] = useState([]);
+  function handleChange(newData) {
+    const { height, weight } = newData;
+    const heightInM = height / 100;
+    newData.bmi = (weight / (heightInM * heightInM)).toFixed(2);
+    newData.id = uuidv4();
+    let newState = [...state, newData];
+    let len = newState.length;
+    if (len > 7) newState = newState.slice(1, len);
+    setState(newState);
   }
   return (
        <div className='container'>

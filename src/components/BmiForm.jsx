@@ -11,7 +11,7 @@ function BmiForm(props) {
   const [data, setData] = useState(initialData);
 
   function handleChange(e) {
-    const { value, name } = e.target;
+    let { value, name } = e.target;
 
     if (value > 999) {
       value = 999;
