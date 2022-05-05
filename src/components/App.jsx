@@ -30,6 +30,10 @@ function App() {
     });
   }
 
+  function handleUndo() {
+    setState(JSON.parse(localStorage.getItem('bmiLastState')));
+  }
+
   return (
     <div className='container'>
       <div className='row center'>
@@ -62,6 +66,13 @@ function App() {
               )}
             </div>
           </div>
+          {localStorage.getItem('bmiLastState') && (
+            <div className='center'>
+              <button className='calculate-btn' onClick={handleUndo}>
+                Undo
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
