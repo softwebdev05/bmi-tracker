@@ -4,12 +4,14 @@ import "./App.css";
 import { v4 as uuidv4 } from 'uuid';
 import BmiForm from "./BmiForm";
 import Info from "./Info";
-import Bar from "./Bar";
+import Chart  from "./Chart";
 
 function App() {
   const initialState = JSON.parse(localStorage.getItem('bmiData')) || [];
+  const initialChartType = JSON.parse(localStorage.getItem('bmiChartType')) || "Line";
   const [state, setState] = useState(initialState);
   const [barData, setBarData] = useState({});
+  const [chartType, setChartType] = useState(initialChartType);
 
   useEffect(() => {
     localStorage.setItem('bmiData', JSON.stringify(state));
@@ -41,6 +43,11 @@ function App() {
     setState(JSON.parse(localStorage.getItem('bmiLastState')));
   }
 
+  function chartSelect(e) {
+    localStorage.setItem('bmiChartType', JSON.stringify(e.target.value));
+    setChartType(e.target.value);
+  }
+
   return (
     <div className='container'>
       <div className='row center'>
@@ -48,8 +55,8 @@ function App() {
       </div>
       <div className='row'>
         <div className='col m12 s12'>
-          <BmiForm onChange={handleChange} />
-          <Bar labelData={barData.date} bmiData={barData.bmi} />
+          <BmiForm onChange={handleChange} selectChange={chartSelect} defaultSelect={chartType} />
+          <Chart labelData={barData.date} bmiData={barData.bmi} chart={chartType} />
           <div>
             <div className='row center'>
               <h4 className='white-text'>7 Day Data</h4>
