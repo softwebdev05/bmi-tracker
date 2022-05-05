@@ -61,16 +61,24 @@ function BmiForm(props) {
           />
         </div>
       </div>
-      <div className="center">
-        <button
-          id="bmi-btn"
-          className="calculate-btn"
-          type="button"
-          disabled={data.weight === '' || data.height === ''}
-          onClick={handleSubmit}
-        >
-          Calculate BMI
-        </button>
+      <div className="row">
+        <div className="col m6 s12 center">
+          <button
+            id="bmi-btn"
+            className="calculate-btn"
+            type="button"
+            disabled={data.weight === '' || data.height === ''}
+            onClick={handleSubmit}
+          >
+            Calculate BMI
+          </button>
+        </div>
+        <div className="col m6 s12 center">
+          <select className="chartSelect" value={props.defaultSelect} onChange={(e) => props.selectChange(e)}>
+            <option value="Line">Line</option>
+            <option value="Bar">Bar</option>
+          </select>
+        </div>
       </div>
     </>
   );
